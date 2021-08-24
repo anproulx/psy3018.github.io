@@ -42,6 +42,30 @@ Ce chapitre est en cours de développement. Il se peut que l'information soit in
 
 ## Objectifs du cours
 
+- Comprendre les bases **physiques** et **physiologiques** du signal BOLD
+- Comprendre l'hypothèse du **système linéaire**, invariant dans le temps
+- Connaître les principales étapes de **pré-traitement** des données IRMf
+- Connaître le principe de génération d'une **carte d'activation**
+
+Dans ce chapitre, vous serez initié aux fondements théoriques qui nous permettent de faire la construction de cartes d'activation en IRM fonctionnelle, menant à des inférences sur l'organisation fonctionnelle du cerveau. Nous débuterons ce chapitre en contrastant tout d'abord les objectifs respectifs de l'IRM structurelle vus précédemment, et de l'IRM fonctionnelle. 
+
+#### En **IRM structurelle**
+`L'objectif` poursuivi par l'IRM structurelle est la mise en valeur des **structures et propriétés des tissus** du cerveau. L'acquisition d'un volume (3D) s'étalent typiquement sur plusieurs minutes.
+        
+#### En **IRM fonctionnelle (T2*)**
+`L'objectif` poursuivi est la mise à découvert de **l'organisation fonctionnelle** du cerveau. Nous sommes intéressés au dynamisme de l'activité neuronale, mesurée indirectement via l'activité **BOLD**, et ce, souvent en relation avec des manipulations expérimentales. Comparativement à la modalité d'IRM structurelle, c'est une **séquence** de volumes qui est acquise (4D) sur la durée de l'acquisition.
+
+-----------------------------------------------------------------
+#### 📋 Résumé 📋
+
+|               |   `IRM structurelle`     | `IRM fonctionnelle (T2*)`  |
+| ------------- |:-------------:| -----:|
+| `Objet d'étude`      | **Anatomie** et propriétés des tissus | Organisation **fonctionnelle**|
+| `Dimension`     | **3D**   |   **4D** |
+| `Durée de l'acquisition` | Plusieurs minutes |  Durée d'acquisition plus courte |
+
+------------------------------------------------------------------
+
 ## Couplage neurovasculaire
 ```{code-cell} ipython 3
 :tags: ["hide-input"]
