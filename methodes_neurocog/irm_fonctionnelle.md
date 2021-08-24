@@ -52,7 +52,7 @@ Dans ce chapitre, vous serez initié aux fondements théoriques qui nous permett
 #### En **IRM structurelle**
 `L'objectif` poursuivi par l'IRM structurelle est la mise en valeur des **structures et propriétés des tissus** du cerveau. L'acquisition d'un volume (3D) s'étalent typiquement sur plusieurs minutes.
         
-#### En **IRM fonctionnelle (T2*)***
+#### En **IRM fonctionnelle (T2*)**
 `L'objectif` poursuivi est la mise à découvert de **l'organisation fonctionnelle** du cerveau. Nous sommes intéressés au dynamisme de l'activité neuronale, mesurée indirectement via l'activité **BOLD**, et ce, souvent en relation avec des manipulations expérimentales. Comparativement à la modalité d'IRM structurelle, c'est une **séquence** de volumes qui est acquise (4D) sur la durée de l'acquisition.
 
 -----------------------------------------------------------------
@@ -65,6 +65,10 @@ Dans ce chapitre, vous serez initié aux fondements théoriques qui nous permett
 | `Durée de l'acquisition` | Plusieurs minutes |  Durée d'acquisition plus courte |
 
 ------------------------------------------------------------------
+
+```{note}
+Here is a note!
+```
 
 ## Couplage neurovasculaire
 ```{code-cell} ipython 3
