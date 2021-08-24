@@ -49,10 +49,10 @@ Ce chapitre est en cours de développement. Il se peut que l'information soit in
 
 Dans ce chapitre, vous serez initié aux fondements théoriques qui nous permettent de faire la construction de cartes d'activation en IRM fonctionnelle, menant à des inférences sur l'organisation fonctionnelle du cerveau. Nous débuterons ce chapitre en contrastant tout d'abord les objectifs respectifs de l'IRM structurelle vus précédemment, et de l'IRM fonctionnelle. 
 
-#### En **IRM structurelle**
+#### En IRM structurelle
 `L'objectif` poursuivi par l'IRM structurelle est la mise en valeur des **structures et propriétés des tissus** du cerveau. L'acquisition d'un volume (3D) s'étalent typiquement sur plusieurs minutes.
         
-#### En **IRM fonctionnelle (T2*)**
+#### En IRM fonctionnelle (T2*)
 `L'objectif` poursuivi est la mise à découvert de **l'organisation fonctionnelle** du cerveau. Nous sommes intéressés au dynamisme de l'activité neuronale, mesurée indirectement via l'activité **BOLD**, et ce, souvent en relation avec des manipulations expérimentales. Comparativement à la modalité d'IRM structurelle, c'est une **séquence** de volumes qui est acquise (4D) sur la durée de l'acquisition.
 
 -----------------------------------------------------------------
@@ -65,7 +65,23 @@ Dans ce chapitre, vous serez initié aux fondements théoriques qui nous permett
 | `Durée de l'acquisition` | Plusieurs minutes |  Durée d'acquisition plus courte |
 
 ------------------------------------------------------------------
-
+```{code-cell} ipython 3
+:tags: ["hide-input"]
+# @ cells to hide
+# import 
+import pandas as pd
+import nilearn
+import numpy as np
+from nilearn.plotting import plot_stat_map, plot_anat, plot_img
+from matplotlib.offsetbox import TextArea, DrawingArea, OffsetImage, AnnotationBbox
+from nilearn import datasets
+from PIL import Image, ImageDraw
+from nilearn.input_data import NiftiMasker
+import pylab as plt
+import PIL
+from PIL import Image
+glue("t1-fig", fig, display=False)
+```
 ```{note}
 Here is a note!
 ```
