@@ -70,6 +70,9 @@ Dans ce chapitre, vous serez initié aux fondements théoriques qui nous permett
 Here is a note!
 ```
 
+def main():
+    return
+
 ## Couplage neurovasculaire
 ```{code-cell} ipython 3
 :tags: ["hide-input"]
