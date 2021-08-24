@@ -82,12 +82,149 @@ import PIL
 from PIL import Image
 glue("t1-fig", fig, display=False)
 ```
-```{note}
-Here is a note!
+```# @ cells to hide
+
+# Extract time series
+# load dataset
+haxby_dataset = datasets.fetch_haxby()
+
+# store anatomical and functional data
+haxby_anat_filename = haxby_dataset.anat[0]
+haxby_func_filename = haxby_dataset.func[0]
+
+# load brain_masker
+brain_masker = NiftiMasker(
+    smoothing_fwhm=6,
+    detrend=True, standardize=True,
+    low_pass=0.1, high_pass=0.01, t_r=2,
+    memory='nilearn_cache', memory_level=1, verbose=0)
+
+# load brain_time_series
+brain_time_series = brain_masker.fit_transform(haxby_func_filename,
+                                               confounds=None)
+# @ cells to hide
+
+# save anatomical image as png
+#img = plot_anat(haxby_anat_filename, title="",  dim=-1, draw_cross = False)
+#img.savefig('anatomical_image.png')
+
+# Load anatomical image
+image = Image.open('anatomical_image.png')
+
+# Draw grid on image
+draw = ImageDraw.Draw(image)
+y_start = 0
+y_end = image.height
+step_size = int(image.width / 60)
+
+for x in range(0, image.width, step_size):
+    line = ((x, y_start), (x, y_end))
+    draw.line(line, fill="darkslategray")
+
+x_start = 0
+x_end = image.width
+
+for y in range(0, image.height, step_size):
+    line = ((x_start, y), (x_end, y))
+    draw.line(line, fill="darkslategray")
+
+del draw
+
+image.show()
 ```
 
-def main():
-    return
+À chaque voxel du cerveau (volume 3D), nous détenons plusieurs points de mesure de l'activité cérébrale dans le temps ce qui forme ce que l'on appelle une **série temporelle** ou **décours temporel**. Une série temporelle contient l'information relative aux changements de l'activité cérébrale dans le temps. 
+
+
+```from mpl_toolkits.mplot3d import Axes3D
+#@title Figure settings
+import ipywidgets as widgets       # interactive display
+from ipywidgets import fixed
+from nilearn.input_data import NiftiLabelsMasker
+%config InlineBackend.figure_format = 'retina'
+#plt.style.use("https://raw.githubusercontent.com/NeuromatchAcademy/course-content/master/nma.mplstyle")
+
+from IPython.core.display import HTML as Center
+
+Center(""" <style>
+.output_png {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+</style> """)
+
+from mpl_toolkits.mplot3d import Axes3D
+
+#fig2, axes = plt.subplots(1, 2, figsize=(20, 5))
+
+def expand_coordinates(indices):
+    x, y, z = indices
+    x[1::2, :, :] += 1
+    y[:, 1::2, :] += 1
+    z[:, :, 1::2] += 1
+    return x, y, z
+
+def explode(data):
+    shape_arr = np.array(data.shape)
+    size = shape_arr[:3]*2 - 1
+    exploded = np.zeros(np.concatenate([size, shape_arr[3:]]), dtype=data.dtype)
+    exploded[::2, ::2, ::2] = data
+    return exploded
+
+# set figure
+
+fig = plt.figure(figsize=(10,3))
+
+# Plot voxel
+
+ax1 = fig.add_subplot(1, 2, 1, projection='3d')
+ax1.set_xlabel("x")
+ax1.set_ylabel("y")
+ax1.set_zlabel("z")
+ax1.grid(False)
+colors = np.array([[['#1f77b430']*1]*1]*1)
+colors = explode(colors)
+filled = explode(np.ones((1, 1, 1)))
+x, y, z = expand_coordinates(np.indices(np.array(filled.shape) + 1))
+
+x[1::2, :, :] += 1
+y[:, 1::2, :] += 1
+z[:, :, 1::2] += 1
+
+ax1.voxels(x, y, z, filled, facecolors=colors, edgecolors='white', shade=False)
+plt.title("Voxel (3mm x 3mm x 3mm)")
+#plt.show()
+
+
+# séries temporelles
+
+# random voxel 
+voxel = 1
+ax = fig.add_subplot(1, 2, 2)
+ax.plot(brain_time_series[:, voxel])
+ax.set_title("Décours temporel d'un voxel")
+#plt.tight_layout()
+#plt.tick_params(labelcolor="none", bottom=False, left=False)
+
+plt.xlabel("Temps(s)", fontsize = 10)
+plt.ylabel("Signal BOLD", fontsize= 10)
+#fig.supxlabel('Temps (s)')
+#fig.supylabel('Signal BOLD')
+```
+
+
+```{Ce qu'il faut retenir}
+L'IRM fonctionnelle est une modalité d'imagerie **4D** 
+```
+
+\begin{align}
+{Volume(3D)}+{Temps}
+\end{align}
+
+```{Note}
+*Une différence fondamentale avec l'IRM structurelle, est l'ajout de la dimension temporelle. Ceci entraîne ultimement un compromis avec la résolution spatiale qui tend à diminuer pour de plus courtes durée d'acquisition.*
+```
 
 ## Couplage neurovasculaire
 ```{code-cell} ipython 3
