@@ -59,7 +59,7 @@ Dans ce chapitre, vous serez initié aux fondements théoriques qui nous permett
 
 ------------------------------------------------------------------
 
-#### En **IRM fonctionnelle (T2*)**
+#### En IRM fonctionnelle (T2*)
 
 **Un premier aperçu**
 
@@ -175,8 +175,9 @@ L'IRM fonctionnelle est une modalité d'imagerie 4D. Une différence fondamental
 {Volume(3D)}+{Temps}
 \end{align}
 ```
+## Bases physiques et physiologiques
 
-## Couplage neurovasculaire
+### Couplage neurovasculaire
 ```{code-cell} ipython 3
 :tags: ["hide-input"]
 
@@ -187,6 +188,9 @@ warnings.filterwarnings("ignore")
 # Youtube
 HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/SWOww_Ensqg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
 ```
+L'IRM fonctionnelle et les inférences faites sur l'organisation fonctionnelle du cerveau reposent sur une série d'hypothèses ou présuppositions théoriques. L'une de ces hypothèse importante est le phénomène du **couplage neurovasculaire**. 
+
+
 
 ## Modèle de réponse hémodynamique
 ```{code-cell} ipython 3
