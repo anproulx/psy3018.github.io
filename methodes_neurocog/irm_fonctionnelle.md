@@ -70,37 +70,37 @@ Il est possible de faire un parallèle entre les images obtenues avec l'IRM fonc
 ```{figure} ./irm_fonctionnelle/image_01.png
 ---
 width: 800px
-name: cartes-cerebrales-fig
+name: image-anatomique-fig
 ---
-Figure anatomique obtenue à l'aide de la librairie nilearn.
+Pour chaque voxel du cerveau (volume 3D), ici délimités par la grille superposée à l'image, nous détenons plusieurs points de mesure de l'activité cérébrale dans le temps, ce qui forme ce que l'on appelle une **série temporelle** ou **décours temporel**. Une série temporelle contient l'information relative aux changements de cette activité cérébrale. Notez que cette figure a été générée à l'aide de la librairie nilearn et du Python Imaging Library (PIL). 
 ```
 
 
 ```{code-cell} ipython 3
 :tags: ["hide-input"]
-# @ cells to hide
-# import 
+# imports
 import pandas as pd
 import nilearn
 import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+from nilearn.input_data import NiftiLabelsMasker
 from nilearn.plotting import plot_stat_map, plot_anat, plot_img
 from matplotlib.offsetbox import TextArea, DrawingArea, OffsetImage, AnnotationBbox
 from nilearn import datasets
-from PIL import Image, ImageDraw
 from nilearn.input_data import NiftiMasker
-import pylab as plt
-import PIL
-from PIL import Image
 glue("t1-fig", fig, display=False)
 ```
-```# @ cells to hide
 
-# Extract time series
+```{code-cell} ipython 3
+:tags: ["hide-input"]
+
+####### Generate figure below of a voxel with corresponding timeseries
+
+# Extract time series for a subject
 # load dataset
 haxby_dataset = datasets.fetch_haxby()
 
-# store anatomical and functional data
-haxby_anat_filename = haxby_dataset.anat[0]
+# store functional data
 haxby_func_filename = haxby_dataset.func[0]
 
 # load brain_masker
@@ -110,65 +110,11 @@ brain_masker = NiftiMasker(
     low_pass=0.1, high_pass=0.01, t_r=2,
     memory='nilearn_cache', memory_level=1, verbose=0)
 
-# load brain_time_series
+# apply brain masker to extract time series
 brain_time_series = brain_masker.fit_transform(haxby_func_filename,
                                                confounds=None)
-# @ cells to hide
 
-# save anatomical image as png
-#img = plot_anat(haxby_anat_filename, title="",  dim=-1, draw_cross = False)
-#img.savefig('anatomical_image.png')
-
-# Load anatomical image
-image = Image.open('anatomical_image.png')
-
-# Draw grid on image
-draw = ImageDraw.Draw(image)
-y_start = 0
-y_end = image.height
-step_size = int(image.width / 60)
-
-for x in range(0, image.width, step_size):
-    line = ((x, y_start), (x, y_end))
-    draw.line(line, fill="darkslategray")
-
-x_start = 0
-x_end = image.width
-
-for y in range(0, image.height, step_size):
-    line = ((x_start, y), (x_end, y))
-    draw.line(line, fill="darkslategray")
-
-del draw
-
-image.show()
-```
-
-À chaque voxel du cerveau (volume 3D), nous détenons plusieurs points de mesure de l'activité cérébrale dans le temps ce qui forme ce que l'on appelle une **série temporelle** ou **décours temporel**. Une série temporelle contient l'information relative aux changements de l'activité cérébrale dans le temps. 
-
-
-```from mpl_toolkits.mplot3d import Axes3D
-#@title Figure settings
-import ipywidgets as widgets       # interactive display
-from ipywidgets import fixed
-from nilearn.input_data import NiftiLabelsMasker
-%config InlineBackend.figure_format = 'retina'
-#plt.style.use("https://raw.githubusercontent.com/NeuromatchAcademy/course-content/master/nma.mplstyle")
-
-from IPython.core.display import HTML as Center
-
-Center(""" <style>
-.output_png {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-}
-</style> """)
-
-from mpl_toolkits.mplot3d import Axes3D
-
-#fig2, axes = plt.subplots(1, 2, figsize=(20, 5))
-
+# useful functions
 def expand_coordinates(indices):
     x, y, z = indices
     x[1::2, :, :] += 1
@@ -184,11 +130,9 @@ def explode(data):
     return exploded
 
 # set figure
-
 fig = plt.figure(figsize=(10,3))
 
 # Plot voxel
-
 ax1 = fig.add_subplot(1, 2, 1, projection='3d')
 ax1.set_xlabel("x")
 ax1.set_ylabel("y")
@@ -204,13 +148,10 @@ y[:, 1::2, :] += 1
 z[:, :, 1::2] += 1
 
 ax1.voxels(x, y, z, filled, facecolors=colors, edgecolors='white', shade=False)
-plt.title("Voxel (3mm x 3mm x 3mm)")
-#plt.show()
+plt.title("Voxel (3D")
 
 
-# séries temporelles
-
-# random voxel 
+# Plot série temporelle pour un voxel
 voxel = 1
 ax = fig.add_subplot(1, 2, 2)
 ax.plot(brain_time_series[:, voxel])
@@ -228,6 +169,7 @@ plt.ylabel("Signal BOLD", fontsize= 10)
 ```{Ce qu'il faut retenir}
 L'IRM fonctionnelle est une modalité d'imagerie 4D
 ```
+
 ```
 \begin{align}
 {Volume(3D)}+{Temps}
