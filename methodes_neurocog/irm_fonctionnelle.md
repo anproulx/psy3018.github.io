@@ -197,6 +197,19 @@ name: hypothèses-fig
 Sur cette figure, nous pouvons voir la série d'hypothèses sur laquelle repose la modalité d'IRM fonctionnelle et la génération de cartes d'activation. Le couplage neurovasculaire concerne la partie représentant les neurones et la réponde hémodynamique. Ceux-ci seront abordés plus en détails dans la section qui suit.  
 ```
 
+####  `Qu'est-ce que le couplage neurovasculaire?` 
+
+Il s'agit d'un **mécanisme** par lequel l'**activité neuronale** du cerveau est suivie une réponse vasculaire, puis d'une **augmentation de la concentration en oxygène** dans le sang à proximité des neurones actifs. Ces changements en oxygénation s'opèrent finement dans le cerveau (**~ 10 microns**), et ils concernent l'échelle des ramifications les plus fines de l'arbre vasculaire, le réseau des capillaires, qui constitue sommairement la microvascularisation. 
+
+```{figure} ./irm_fonctionnelle/brain_capillaries.jpg
+---
+width: 800px
+name: capillaires-fig
+---
+Sur cette figure, nous pouvons voir le réseau des capillaires irrigant les neurones du cerveau. Copyright © 2010 by Morgan & Claypool Life Sciences.
+NCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.
+```
+
 ## Modèle de réponse hémodynamique
 ```{code-cell} ipython 3
 :tags: ["hide-input"]
