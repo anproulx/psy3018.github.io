@@ -209,6 +209,9 @@ name: capillaires-fig
 Sur cette figure, nous pouvons voir le réseau des capillaires irrigant les neurones du cerveau. Copyright © 2010 by Morgan & Claypool Life Sciences.
 NCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.
 ```
+```{Un peu d'histoire sur le phénomène du couplage neuro-vasculaire}
+Le phénomène du couplage neurovasculaire a été postulé pour la première fois vers la fin du 19e sièce dans les travaux Roy C.S. Sherrington C.S. On the regulation of the blood supply of the brain.J. Physiol. 1890; 11: 85-108.
+```
 
 ## Modèle de réponse hémodynamique
 ```{code-cell} ipython 3
