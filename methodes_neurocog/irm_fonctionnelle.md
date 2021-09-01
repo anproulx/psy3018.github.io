@@ -67,12 +67,12 @@ Dans ce chapitre, vous serez initié aux fondements théoriques qui nous permett
 
 Il est possible de faire un parallèle entre les images obtenues avec l'IRM fonctionnelle et un film cinématographique. En effet, un film est composé d'une séquence d'images se succédant à une fréquence donnée donnant l'illusion de dynamisme. Avec l'IRM fonctionnelle, toutefois, plutôt que des images, c'est un volume 3D que l'on obtient si l'on s'arrête à un moment de la séquence.
 
-```{figure} ./irm_fonctionnelle/.png
+```{figure} ./irm_fonctionnelle/image_anatomique_grille.png
 ---
 width: 800px
 name: image-anatomique-fig
 ---
-Pour chaque voxel du cerveau (volume 3D), ici délimités par la grille superposée à l'image, nous détenons plusieurs points de mesure de l'activité cérébrale dans le temps, ce qui forme ce que l'on appelle une **série temporelle** ou **décours temporel**. Une série temporelle contient l'information relative aux changements de cette activité cérébrale. Notez que cette figure a été générée à l'aide de la librairie nilearn et du Python Imaging Library (PIL). 
+Pour chaque voxel du cerveau (volume 3D), ici grossièrement délimités par la grille superposée à l'image, nous détenons plusieurs points de mesure de l'activité cérébrale dans le temps, ce qui forme ce que l'on appelle une **série temporelle** ou **décours temporel**. Une série temporelle contient l'information relative aux changements de cette activité cérébrale. Notez que cette figure a été générée à l'aide de la librairie nilearn et du Python Imaging Library (PIL). 
 ```
 
 
@@ -166,7 +166,7 @@ plt.ylabel("Signal BOLD", fontsize= 10)
 ```
 
 ```{À retenir}
-L'IRM fonctionnelle est une modalité d'imagerie 4D. Une différence fondamentale avec l'IRM structurelle, est l'ajout de la dimension temporelle. Ceci entraîne ultimement un compromis avec la résolution spatiale qui tend à diminuer pour de plus courtes durée d'acquisition.
+L'IRM fonctionnelle est une modalité d'imagerie 4D. Une différence fondamentale avec l'IRM structurelle, est l'ajout de la dimension temporelle. Ceci entraîne ultimement un compromis avec la résolution spatiale qui tend à diminuer pour un volume, pour une plus courte durée d'acquisition.
 ```
 
 ```
