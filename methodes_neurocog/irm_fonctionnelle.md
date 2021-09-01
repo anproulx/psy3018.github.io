@@ -190,7 +190,13 @@ HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/SWOww_
 ```
 L'IRM fonctionnelle et les inférences faites sur l'organisation fonctionnelle du cerveau reposent sur une série d'hypothèses ou présuppositions théoriques. L'une de ces hypothèse importante est le phénomène du **couplage neurovasculaire**. 
 
-
+```{figure} ./irm_fonctionnelle/image_02.png
+---
+width: 800px
+name: image-anatomique-fig
+---
+Sur cette figure, nous pouvons voir la série d'hypothèses sur laquelle repose la modalité d'IRM fonctionnelle et la génération de cartes d'activation. Le couplage neurovasculaire concerne la partie représentant les neurones et la réponde hémodynamique. Ceux-ci seront abordés plus en détails dans la section qui suit.  
+```
 
 ## Modèle de réponse hémodynamique
 ```{code-cell} ipython 3
