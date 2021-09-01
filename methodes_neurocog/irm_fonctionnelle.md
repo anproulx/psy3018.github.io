@@ -49,22 +49,26 @@ Ce chapitre est en cours de développement. Il se peut que l'information soit in
 
 Dans ce chapitre, vous serez initié aux fondements théoriques qui nous permettent de faire la construction de cartes d'activation en IRM fonctionnelle, menant à des inférences sur l'organisation fonctionnelle du cerveau. Nous débuterons ce chapitre en contrastant tout d'abord les objectifs respectifs de l'IRM structurelle vus précédemment, et de l'IRM fonctionnelle. 
 
-#### En IRM structurelle
-`L'objectif` poursuivi par l'IRM structurelle est la mise en valeur des **structures et propriétés des tissus** du cerveau. L'acquisition d'un volume (3D) s'étalent typiquement sur plusieurs minutes.
-        
-#### En IRM fonctionnelle (T2*)
-`L'objectif` poursuivi est la mise à découvert de **l'organisation fonctionnelle** du cerveau. Nous sommes intéressés au dynamisme de l'activité neuronale, mesurée indirectement via l'activité **BOLD**, et ce, souvent en relation avec des manipulations expérimentales. Comparativement à la modalité d'IRM structurelle, c'est une **séquence** de volumes qui est acquise (4D) sur la durée de l'acquisition.
-
 -----------------------------------------------------------------
-#### 📋 Résumé 📋
 
 |               |   `IRM structurelle`     | `IRM fonctionnelle (T2*)`  |
 | ------------- |:-------------:| -----:|
-| `Objet d'étude`      | **Anatomie** et propriétés des tissus | Organisation **fonctionnelle**|
-| `Dimension`     | **3D**   |   **4D** |
+| `Objet d'étude`      | **Anatomie, structures et propriétés des tissus** | **Organisation fonctionnelle**|
+| `Dimension`     | 1 volume - **3D**   |  Plusieurs volumes dans le temps - **4D** |
 | `Durée de l'acquisition` | Plusieurs minutes |  Durée d'acquisition plus courte |
 
 ------------------------------------------------------------------
+
+#### En **IRM fonctionnelle (T2*)**
+
+**Un premier aperçu**
+
+`L'objectif` de l'IRM fonctionnelle est l'investiguation de **l'organisation fonctionnelle** du cerveau. Lorsque nous employons cette modalité, nous sommes intéressés par le dynamisme de l'activité neuronale, et ce, souvent en relation avec des manipulations expérimentales. Comparativement à la modalité d'IRM structurelle qui visait à imager les structures du cerveau de manière statique, nous faisons ici l'acquisition d'une **séquence** de volumes (4D), et s'ajoute la dimension du temps. 
+
+Il est possible de faire un parallèle entre les images obtenues avec l'IRM fonctionnelle et un film cinématographique. En effet, un film est composé d'une séquence d'images se succédant à une fréquence donnée donnant l'illusion de dynamisme. Avec l'IRM fonctionnelle, toutefois, plutôt que des images, c'est un volume 3D que l'on obtient si l'on s'arrête à un moment de la séquence.
+
+
+
 ```{code-cell} ipython 3
 :tags: ["hide-input"]
 # @ cells to hide
