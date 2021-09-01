@@ -213,6 +213,43 @@ NCBI Bookshelf. A service of the National Library of Medicine, National Institut
 Le phénomène du couplage neurovasculaire a été postulé pour la première fois vers la fin du 19e sièce dans les travaux Roy C.S. Sherrington C.S. On the regulation of the blood supply of the brain.J. Physiol. 1890; 11: 85-108.
 ```
 
+#### `Quel est le lien entre activité neuronale et vascularisation?` 
+
+Les mécanismes sous-jacents au phénomène du couplage neurovasculaire sont complexes. Le neurone peut être comparé à une petite usine chimique. L'activité du neurone est assurée par divers composés, impliqués des réactions chimiques, notamment celles menant à la production de neurotransmetteurs dans la fente synaptique. Cette activité n'est pas sans coût : elle accroît la **demande métabolique** (nutriments et oxygène) à proximité des neurones actifs. Ceci produit une réponse vasculaire se caractérisant par **l'augmentation du volume des capillaires** et **l'augmentation du flux sanguin**, qui permet d'accroître l'acheminement en **oxygène** vers les neurones. Éventuellement, un surplus d'oxygène s'accumule localement, puisque l'acheminement en oxygène surpasse sa consommation.
+
+```{À retenir}
+L'IRMf constitue par ce fait même, une **mesure indirecte** de l'activité neuronale. En effet, cette modalité ne mesure pas directement l'activité des neurones, mais plutôt la demande métabolique associée à celle-ci.*
+```
+
+#### `En quoi le couplage neurovasculaire importe-t-il?` 
+
+L'imagerie par résonnance magnétique fonctionnelle (IRMf) est une modalité d'imagerie cérébrale qui exploite le phénomène du couplage neurovasculaire pour mesurer l'activité neuronale, plus précisément l'activité post-synaptique. Les changements en oxygène dans le sang sont mesurés à l'aide du **signal BOLD** (*Blood Oxygenation Level Dependent*) qui reflète la concentration relative en déoxyhémoglobine et oxyhémoglobine localement dans le sang. 
+
+#### `Quel est le lien entre le signal BOLD, l'oxyhémoglobine et la déoxyhémoglobine?`
+
+L'hémoglobine existe sous deux états, qui détiennent des propriétés éléctromagnétiques/stabilité moléculaire distincte. L'**oxyhémoglobine** est **diamagnétique**, tandis que la **dé-oxyhémglobine** est **paramagnétique**. 
+
+Ceci implique que, lorsque soumise à un champ magnétique, ces molécules se comportent différemment. D'une part, la dé-oxyhémoglobine qui est paramagnétique créer des inhomogénéités du champ magnétique. D'autre part, l'oxyhémoglobine ne créer pas de telles inhomogénéités.
+
+Lorsque les neurones s'**activent**, la réponse vasculaire qui achemine l'oxygène vers les neurones, entraîne l'augmentation de la concentration relative de l'oxyhémoglobine par rapport à la dé-oxyhémoglobine localement, ce qui est réflété par la **diminution des inhomogénéités** du champ, et conséquemment, l'**augmentation du signal BOLD**.
+
+```{Note}
+Les séquences T2* sont sensibles aux inhomogénéités du champ. Cette information est utilisée pour reconstruire l'activité neuronale.
+```
+
+```{En bref}
+-----------------------------------------------------------------
+
+|               |   `Déoxyhémoglobine`     | `Oxyhémoglobine`  |
+| ------------- |:-------------:| -----:|
+| `Impact sur le signal BOLD`      | **Réduit** le signal BOLD  | **Augmente** le signal BOLD|
+| `T2*`     | Décroît plus rapidement   |   Décroît plus lentement |
+| `Explication` | **Ajout d'inhomogénéités/distorsions du champ** |  **Pas d'inhomogénétités du champ**  |
+
+------------------------------------------------------------------
+```
+
+
 ## Modèle de réponse hémodynamique
 ```{code-cell} ipython 3
 :tags: ["hide-input"]
