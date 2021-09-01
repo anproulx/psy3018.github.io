@@ -67,6 +67,13 @@ Dans ce chapitre, vous serez initié aux fondements théoriques qui nous permett
 
 Il est possible de faire un parallèle entre les images obtenues avec l'IRM fonctionnelle et un film cinématographique. En effet, un film est composé d'une séquence d'images se succédant à une fréquence donnée donnant l'illusion de dynamisme. Avec l'IRM fonctionnelle, toutefois, plutôt que des images, c'est un volume 3D que l'on obtient si l'on s'arrête à un moment de la séquence.
 
+```{figure} ./irm_fonctionnelle/image_01.png
+---
+width: 800px
+name: cartes-cerebrales-fig
+---
+Figure anatomique obtenue à l'aide de la librairie nilearn.
+```
 
 
 ```{code-cell} ipython 3
