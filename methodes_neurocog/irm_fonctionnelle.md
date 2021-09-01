@@ -67,7 +67,7 @@ Dans ce chapitre, vous serez initié aux fondements théoriques qui nous permett
 
 Il est possible de faire un parallèle entre les images obtenues avec l'IRM fonctionnelle et un film cinématographique. En effet, un film est composé d'une séquence d'images se succédant à une fréquence donnée donnant l'illusion de dynamisme. Avec l'IRM fonctionnelle, toutefois, plutôt que des images, c'est un volume 3D que l'on obtient si l'on s'arrête à un moment de la séquence.
 
-```{figure} ./irm_fonctionnelle/image_01.png
+```{figure} ./irm_fonctionnelle/.png
 ---
 width: 800px
 name: image-anatomique-fig
@@ -165,7 +165,6 @@ plt.ylabel("Signal BOLD", fontsize= 10)
 #fig.supylabel('Signal BOLD')
 ```
 
-
 ```{À retenir}
 L'IRM fonctionnelle est une modalité d'imagerie 4D. Une différence fondamentale avec l'IRM structurelle, est l'ajout de la dimension temporelle. Ceci entraîne ultimement un compromis avec la résolution spatiale qui tend à diminuer pour de plus courtes durée d'acquisition.
 ```
@@ -190,10 +189,10 @@ HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/SWOww_
 ```
 L'IRM fonctionnelle et les inférences faites sur l'organisation fonctionnelle du cerveau reposent sur une série d'hypothèses ou présuppositions théoriques. L'une de ces hypothèse importante est le phénomène du **couplage neurovasculaire**. 
 
-```{figure} ./irm_fonctionnelle/image_02.png
+```{figure} ./irm_fonctionnelle/Hypothèses_github.png
 ---
 width: 800px
-name: image-anatomique-fig
+name: hypothèses-fig
 ---
 Sur cette figure, nous pouvons voir la série d'hypothèses sur laquelle repose la modalité d'IRM fonctionnelle et la génération de cartes d'activation. Le couplage neurovasculaire concerne la partie représentant les neurones et la réponde hémodynamique. Ceux-ci seront abordés plus en détails dans la section qui suit.  
 ```
