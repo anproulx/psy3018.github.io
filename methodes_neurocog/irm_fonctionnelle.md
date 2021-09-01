@@ -166,18 +166,14 @@ plt.ylabel("Signal BOLD", fontsize= 10)
 ```
 
 
-```{Ce qu'il faut retenir}
-L'IRM fonctionnelle est une modalité d'imagerie 4D
+```{À retenir}
+L'IRM fonctionnelle est une modalité d'imagerie 4D. Une différence fondamentale avec l'IRM structurelle, est l'ajout de la dimension temporelle. Ceci entraîne ultimement un compromis avec la résolution spatiale qui tend à diminuer pour de plus courtes durée d'acquisition.
 ```
 
 ```
 \begin{align}
 {Volume(3D)}+{Temps}
 \end{align}
-```
-
-```{Note}
-Une différence fondamentale avec l'IRM structurelle, est l'ajout de la dimension temporelle. Ceci entraîne ultimement un compromis avec la résolution spatiale qui tend à diminuer pour de plus courtes durée d'acquisition.
 ```
 
 ## Couplage neurovasculaire
