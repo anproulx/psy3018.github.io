@@ -249,14 +249,20 @@ Les séquences T2* sont sensibles aux inhomogénéités du champ. Cette informat
 ------------------------------------------------------------------
 ```
 
-
-## Modèle de réponse hémodynamique
+## Fonction de réponse hémodynamique
 
 Les inférences sur l'organisation fonctionnelle du cerveau reposent également sur d'autres présuppositions importantes. L'une d'entre elles se rapporte à la connaissance des propriétés de la fonction de réponse hémodynamique. 
 
 #### `Qu'est-ce que la fonction de réponse hémodynamique?`
 
 Il s'agit d'une fonction mathématique qui décrit l'évolution du **signal BOLD** en terme mathématiques, suite à une réponse neuronale, et ce, en fonction du temps. Le premier modèle quantitatif du couplage neurovasculaire (dit “modèle du ballon”) a été proposé par Buxton et al., MRM 1998. La fonction de réponse hémodynamique traite l'activité neuronale (*X*) et le signal BOLD (*y*) comme formant un **système**. 
+
+**`Théorie des systèmes`**
+
+\begin{align}
+X(t) &\quad \text{intrant - > activité neuronale}\\
+Y(t) &\quad \text{sortie - > réponse hémodynamique}\\
+\end{align}
 
 ```{code-cell} ipython 3
 :tags: ["hide-input"]
