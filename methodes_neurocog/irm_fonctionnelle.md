@@ -200,7 +200,7 @@ Quelle est l'origine du signal BOLD? L'hémoglobine qui fait le transport de l'o
 
 ------------------------------------------------------------------
 
-La déoxyhémoglobine créer des inhomogénéités du champ magnétique venant réduire le signal BOLD, alors que de son côté, l'oxyhémoglobine ne créer pas de telles inhomogénéités, et amplifie le signal BOLD. Ceci implique que lorsque les neurones s'activent, l'augmentation de la concentration relative de l'oxyhémoglobine par rapport à la dé-oxyhémoglobine localement est réflété par la **diminution des inhomogénéités** du champ, et donc, l'**augmentation du signal BOLD**. En bref, les propriétés magnétiques de l'hémoglobine selon qu'elle porte l'oxygène ou non, nous permet d'observer les changements du signal BOLD, autrement dit, les changement de la demande métabolique (oxyhémoglobine vs déoxyhémoglobine) localement, ce qui permet, éventuellement, d'inférer la réponse neuronale à une condition (présupposant un couplage neurovasculaire typique).
+La déoxyhémoglobine créer des inhomogénéités du champ magnétique venant réduire le signal BOLD, alors que de son côté, l'oxyhémoglobine ne créer pas de telles inhomogénéités, et amplifie le signal BOLD. Ceci implique que lorsque les neurones s'activent, l'augmentation de la concentration relative de l'oxyhémoglobine par rapport à la dé-oxyhémoglobine localement est réflété par la **diminution des inhomogénéités** du champ, et donc, l'**augmentation du signal BOLD**. En bref, les propriétés magnétiques de l'hémoglobine avec et sans oxygène nous permettent d'observer les changements du signal BOLD, autrement dit, les changement de la demande métabolique (oxyhémoglobine vs déoxyhémoglobine) localement. Du même coup, ceci permet de reconstruire la réponse neuronale à une condition (présupposant un couplage neurovasculaire typique).
 
 > Les séquences T2* * *sont sensibles aux inhomogénéités du champ. Cette information est utilisée pour reconstruire l'activité neuronale
 
@@ -248,7 +248,7 @@ X(t) &\quad \text{intrant : activité neuronale}\\
 Y(t) &\quad \text{sortie : réponse hémodynamique}\\
 \end{align}
 
-Plus tôt, nous avons parlé du couplage neurovasculaire comme figurant parmi les hypothèses théoriques (physiologiques) centrales à la modalité de l'IRM fonctionnelle. La fonction de réponse hémodynamique, et ses propriétés mathématiques, constitue une autre hypothèses importante pour les aspects de modélisation de l'IRM fonctionnelle. Essentiellement, la fonction de réponse hémodynamique sous-tend les inférences que l'on fait sur l'organisation fonctionnelle du cerveau: nous l'employons pour estimer la réponse à une tâche ou condition donnée. 
+La fonction ou le modèle de réponse hémodynamique, et ses propriétés mathématiques, constitue une autre hypothèses importante pour les aspects de modélisation de l'IRM fonctionnelle. Essentiellement, elle sous-tend les inférences que l'on fait sur l'organisation fonctionnelle du cerveau: nous l'employons pour estimer la réponse à une tâche ou condition donnée. 
 
 Dans la figure ci-haut, l'axe des *X* représente le temps, et l'axe de *Y*, le % du changement du signal BOLD. La ligne verticale rouge indique le début de la stimulation. La courbe bleue, pour sa part, illustre le % du changement du signal BOLD attendu suivant la stimulation. Ci-dessous sont décrit quelques caractéristiques de la fonction de réponse hémodynamique. 
 
