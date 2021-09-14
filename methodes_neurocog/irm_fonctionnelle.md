@@ -64,7 +64,7 @@ Ce quatrième chapitre introduit les fondements théoriques de l'IRM fonctionnel
 Nous verrons également **l'hypothèse du système linéaire invariant dans le temps** qui sous-tend la modélisation du signal BOLD, et permet de dériver le niveau d'activation en réponse à divers paradigmes expérimentaux. Nous introduirons ensuite les principales étapes de **prétraitement** appliquées aux images d'IRM fonctionnelle, qui, comme vous le verrez, recoupent partiellement certaines des étapes vues dans le chapitre précédent (recalage, lissage spatial). Tel que nous le verrons, ces étapes sont nécessaires afin d'éliminer le bruit pouvant s'être mêlé au signal BOLD mesuré, mais qui, en l'occurence, ne reflète pas un phénomène d'intérêt. Finalement, nous aborderons la construction de **cartes d'activation**, qui, en exploitant des concepts statistiques, permet d'émettre des hypothèses scientifiques sur l'organisation fonctionnelle du cerveau. 
 
 
-#### Un premier aperçu**
+### Un premier aperçu
 
 L'IRM fonctionnelle s'est considérablement développer depuis ses débuts dans les années 1990. Aujourd'hui, il s'agit d'une méthode d'imagerie fonctionnelle largement employée par les chercheurs en raison de ses avantages vis-à-vis des autres modalités: l'IRMf est non-invasive, sécuritaire et comprend un bon compromis entre résolution temporelle et spatiale. 
 
@@ -166,9 +166,7 @@ plt.ylabel("Signal BOLD", fontsize= 10)
 #fig.supylabel('Signal BOLD')
 ```
 
-```{À retenir}
-L'IRM fonctionnelle est une modalité d'imagerie 4D. Une différence fondamentale avec l'IRM structurelle, est l'ajout de la dimension temporelle. Ceci entraîne ultimement un compromis avec la résolution spatiale qui tend à diminuer pour un volume, pour une plus courte durée d'acquisition.
-```
+> L'IRM fonctionnelle détient une moins bonne résolution spatiale que l'IRM structurelle. En effet, nous voulons acquérir des images assez rapidement pour avoir suffisamment de mesures du signal BOLD pour arriver à estimer la réponse BOLD (qui sera abordée plus loin). Ces nouvelles considérations temporelles entraînent un compromis avec la résolution spatiale qui tend à diminuer, pour de plus courtes durées d'acquisition.
 
 ```
 \begin{align}
@@ -178,6 +176,36 @@ L'IRM fonctionnelle est une modalité d'imagerie 4D. Une différence fondamental
 ## Bases physiques et physiologiques
 
 ### Couplage neurovasculaire
+L'imagerie par résonnance magnétique fonctionnelle (IRMf) et les inférences faites sur l'organisation fonctionnelle du cerveau reposent sur une superposition d'hypothèses théoriques. L'une de ces hypothèse importante, d'origine physiologique, est le phénomène du **couplage neurovasculaire**. Ce phénomème est important comme il est exploité pour inférer l'activité neuronale, plus précisément, l'activité post-synaptique des neurones. En quoi ce phénomène consiste-t-il? Le couplage neurovasculaire décrit un **système** reliant l'**activité neuronale** à une **réponse vasculaire** caractéristique. 
+
+> Le couplage neurovasculaire a été postulé pour la première fois vers la fin du 19e sièce dans les travaux Roy C.S. Sherrington C.S. On the regulation of the blood supply of the brain.J. Physiol. 1890; 11: 85-108. 
+
+Mais encore? L'activité du neurone est de nature chimique : diverses molécules y opèrent, et impliquées dans des réactions chimiques, notamment celles menant à la production de neurotransmetteurs dans la fente synaptique. Bien que nous n'entrerons pas dans le détail de ces mécanismes, en réalité beaucoup plus complexes, ce qu'il faut retenir, c'est que lorsque le neurone est actif, cela s'accompagne de coûts. Plus précisément, nous parlons de l'augmentation de la **demande métabolique** en nutriments et en oxygène localement pour les neurones actifs. Cette demande métabolique entraîne une réponse vasculaire qui se caractérise par **l'augmentation du volume des capillaires** et **l'augmentation du flux sanguin**, qui **augmente l'acheminement en oxygène** vers les populations de neurones actives. Cette réponse vasculaire est fortement ciblée, puisqu'elle s'opère finement dans le cerveau (**~ 10 microns**). Plus précisément, cette réponse survient à l'échelle des ramifications les plus fines de l'arbre vasculaire irriguant le cerveau, le réseau des capillaires, qui constitue sommairement la microvascularisation. Ceci confère à l'IRM fonctionelle une bonne résolution spatiale.  
+
+La réponse vasculaire nous intéresse puisque 1) elle est couplée à l'activité neuronale et 2) elle est mesurable. Éventuellement, nous nous retrouvons avec un surplus en oxygène à proximité des neurones actifs : l'acheminement d'oxygène (oxyhémoglobine) est plus rapide que sa consommation par les neurones (déoxyhémoglobine). L'augmentation de la concentration relative en **oxyhémoglobine** par rapport à la **déoxyhémoglobine** génère un signal, que l'on nomme le **signal BOLD** (*Blood Oxygenation Level Dependent*).
+
+Quelle est l'origine du signal BOLD? L'hémoglobine qui fait le transport de l'oxygène existe sous deux états soit l'**oxyhémoglobine (oxygéné)** et la **déoxyhémoglobine (déoxygéné)**. Ces molécules détiennent des propriétés éléctromagnétiques ou stabilité moléculaire caractéristiques, que l'on peut exploiter lors des séquences. Autrement dit, nous tirons partie du fait que ces molécules se comportent différemment lorsque soumises au champ magnétique de l'aimant BO.
+
+- L'**oxyhémoglobine** est **diamagnétique**
+- La **déoxyhémoglobine** est **paramagnétique**
+
+-----------------------------------------------------------------
+
+|               |   `Déoxyhémoglobine`     | `Oxyhémoglobine`  |
+| ------------- |:-------------:| -----:|
+|`Propriétés électromagnétiques` |**diamagnétique**| **paramagnétique**|
+| `Impact sur le signal BOLD`      | **Réduit** le signal BOLD  | **Augmente** le signal BOLD|
+| `T2*`     | Décroît plus **rapidement**   |   Décroît plus **lentement** |
+| `Explication` | **Ajout d'inhomogénéités/distorsions du champ** |  **Pas d'inhomogénétités du champ**  |
+
+------------------------------------------------------------------
+
+La déoxyhémoglobine créer des inhomogénéités du champ magnétique venant réduire le signal BOLD, alors que de son côté, l'oxyhémoglobine ne créer pas de telles inhomogénéités, et amplifie le signal BOLD. Ceci implique que lorsque les neurones s'activent, l'augmentation de la concentration relative de l'oxyhémoglobine par rapport à la dé-oxyhémoglobine localement est réflété par la **diminution des inhomogénéités** du champ, et donc, l'**augmentation du signal BOLD**. En bref, les propriétés magnétiques de l'hémoglobine selon qu'elle porte l'oxygène ou non, nous permet d'observer les changements du signal BOLD, autrement dit, les changement de la demande métabolique (oxyhémoglobine vs déoxyhémoglobine) localement, ce qui permet, éventuellement, d'inférer la réponse neuronale à une condition (présupposant un couplage neurovasculaire typique).
+
+> Les séquences T2* * *sont sensibles aux inhomogénéités du champ. Cette information est utilisée pour reconstruire l'activité neuronale
+
+> L'IRMf constitue par ce fait même, une **mesure indirecte** de l'activité neuronale. En effet, cette modalité ne mesure pas directement l'activité des neurones, mais plutôt la demande métabolique (sang oxygéné vs déoxygéné) associée à celle-ci.
+
 ```{code-cell} ipython 3
 :tags: ["hide-input"]
 
