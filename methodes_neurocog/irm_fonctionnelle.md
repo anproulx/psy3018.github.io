@@ -54,7 +54,7 @@ Ce quatrième chapitre introduit les fondements théoriques de l'IRM fonctionnel
 |               |   `IRM structurelle`     | `IRM fonctionnelle (T2*)`  |
 | ------------- |:-------------:| -----:|
 | `Objet d'étude`      | **Anatomie, structures et propriétés des tissus** | **Organisation fonctionnelle**|
-| `Dimension`     | 1 volume - **3D**   |  Plusieurs volumes dans le temps - **4D** |
+| `Dimension`     | 1 volume - **3D**   |  Séries de volumes dans le temps - **4D** |
 | `Durée de l'acquisition` | Plusieurs minutes |  Durée d'acquisition plus courte |
 
 ------------------------------------------------------------------
@@ -63,22 +63,19 @@ Ce quatrième chapitre introduit les fondements théoriques de l'IRM fonctionnel
 
 Nous verrons également **l'hypothèse du système linéaire invariant dans le temps** qui sous-tend la modélisation du signal BOLD, et permet de dériver le niveau d'activation en réponse à divers paradigmes expérimentaux. Nous introduirons ensuite les principales étapes de **prétraitement** appliquées aux images d'IRM fonctionnelle, qui, comme vous le verrez, recoupent partiellement certaines des étapes vues dans le chapitre précédent (recalage, lissage spatial). Tel que nous le verrons, ces étapes sont nécessaires afin d'éliminer le bruit pouvant s'être mêlé au signal BOLD mesuré, mais qui, en l'occurence, ne reflète pas un phénomène d'intérêt. Finalement, nous aborderons la construction de **cartes d'activation**, qui, en exploitant des concepts statistiques, permet d'émettre des hypothèses scientifiques sur l'organisation fonctionnelle du cerveau. 
 
-#### En IRM fonctionnelle (T2*)
 
-**Un premier aperçu**
+#### Un premier aperçu**
 
-`L'objectif` de l'IRM fonctionnelle est l'investiguation de **l'organisation fonctionnelle** du cerveau. Lorsque nous employons cette modalité, nous sommes intéressés par le dynamisme de l'activité neuronale, et ce, souvent en relation avec des manipulations expérimentales. Comparativement à la modalité d'IRM structurelle qui visait à imager les structures du cerveau de manière statique, nous faisons ici l'acquisition d'une **séquence** de volumes (4D), et s'ajoute la dimension du temps. 
+L'IRM fonctionnelle s'est considérablement développer depuis ses débuts dans les années 1990. Aujourd'hui, il s'agit d'une méthode d'imagerie fonctionnelle largement employée par les chercheurs en raison de ses avantages vis-à-vis des autres modalités: l'IRMf est non-invasive, sécuritaire et comprend un bon compromis entre résolution temporelle et spatiale. 
 
-Il est possible de faire un parallèle entre les images obtenues avec l'IRM fonctionnelle et un film cinématographique. En effet, un film est composé d'une séquence d'images se succédant à une fréquence donnée donnant l'illusion de dynamisme. Avec l'IRM fonctionnelle, toutefois, plutôt que des images, c'est un volume 3D que l'on obtient si l'on s'arrête à un moment de la séquence.
+`L'objectif` de l'IRMf est de cartographier les fonctions du cerveau. Pour ce faire, cette modalité acquière des images du cerveau en action (dynamique), et ce, souvent en relation avec des manipulations expérimentales, ayant été conçues pour isoler des processus cognitifs spécifiques. Elle s'appuie, comme nous le verrons, sur des séquence spécifiques, qui mène à la détection du **signal BOLD**, permettant d'inférer l'activité neuronale. 
 
-```{figure} ./irm_fonctionnelle/anatomical_image_grille.png
----
-width: 800px
-name: image-anatomique-fig
----
-Pour chaque voxel du cerveau (volume 3D), ici grossièrement délimités par la grille superposée à l'image, nous détenons plusieurs points de mesure de l'activité cérébrale dans le temps, ce qui forme ce que l'on appelle une **série temporelle** ou **décours temporel**. Une série temporelle contient l'information relative aux changements de cette activité cérébrale. Notez que cette figure a été générée à l'aide de la librairie nilearn et du Python Imaging Library (PIL). 
-```
+> Les images d'IRM fonctionnelle sont un peu comme un film du cerveau. Autrement dit, elles sont composées d'une série d'images, soit ici de volumes 3D, qui se succèdent à une fréquence donnée. Si l'on s'arrête à un moment de la série, on obtient un volume 3D du cerveau. Nous pourrions acquérir des image du cerveau selon une fréquence de 1 volume à chaque 2 secondes pendant un total de 6 minutes, ce qui résulterait en une série de 180 volumes 3D du cerveau. 
 
+>La notion de voxel 
+Un volume du cerveau (3D) est formé plusieurs milliers voxels. Chaque voxel est une unité de ce volume, qui détient une coordonnée dans l'espace 3D (**x, y, z**). 
+
+En chaque voxel du cerveau, nous détenons plusieurs points de mesure du signal BOLD dans le temps, ce qui forme ce que l'on appelle une **série temporelle** ou **décours temporel**. Typiquement, quelques dizaines à centaines de points de mesures décrivent une série temporelle (avec les appareils modernes nous parlons plutôt d'une centaine de points). Ces points de mesures sont séparées par un intervalle de temps, qui peut varier de millisecondes à quelques secondes (avec les appareils modernes on parle plutôt de l'ordre de ms, soit environ 500 ms). Comme nous le verrons plus loin, la série temporelle contient l'information relative aux changements de l'activité neuronale dans le temps. Une grande partie du travail en IRM fonctionnelle consiste à analyser de telles séries temporelles. 
 
 ```{code-cell} ipython 3
 :tags: ["hide-input"]
