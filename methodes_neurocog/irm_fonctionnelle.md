@@ -47,7 +47,7 @@ Ce chapitre est en cours de développement. Il se peut que l'information soit in
 - Connaître les principales étapes de **pré-traitement** des données IRMf
 - Connaître le principe de génération d'une **carte d'activation**
 
-Dans ce chapitre, vous serez initié aux fondements théoriques qui nous permettent de faire la construction de cartes d'activation en IRM fonctionnelle, menant à des inférences sur l'organisation fonctionnelle du cerveau. Nous débuterons ce chapitre en contrastant tout d'abord les objectifs respectifs de l'IRM structurelle vus précédemment, et de l'IRM fonctionnelle. 
+Ce quatrième chapitre introduit les fondements théoriques de l'IRM fonctionnelle menant à la construction de cartes d'activation, et ultimement à des inférences sur l'organisation fonctionnelle du cerveau. Nous aborderons dans un premier temps les **bases physiques et physiologiques** de cette modalité, qui tout comme pour l'IRM structurelle sont mises à profit afin de capturer certaines propriétés d'intérêt du cerveau. Toutefois, contraitement à l'IRM où ces propriétés se rapportaient à l'anatomie du cerveau (statique), ici, elles se rapportent plutôt au dynamisme de l'activité neuronale réflété par le **signal BOLD**. 
 
 -----------------------------------------------------------------
 
@@ -58,6 +58,10 @@ Dans ce chapitre, vous serez initié aux fondements théoriques qui nous permett
 | `Durée de l'acquisition` | Plusieurs minutes |  Durée d'acquisition plus courte |
 
 ------------------------------------------------------------------
+
+> Pour un rappel concernant les acquisitions IRM, veuillez vous référer au Chapitre 2: Analyses morphométriques.
+
+Nous verrons également **l'hypothèse du système linéaire invariant dans le temps** qui sous-tend la modélisation du signal BOLD, et permet de dériver le niveau d'activation en réponse à divers paradigmes expérimentaux. Nous introduirons ensuite les principales étapes de **prétraitement** appliquées aux images d'IRM fonctionnelle, qui, comme vous le verrez, recoupent partiellement certaines des étapes vues dans le chapitre précédent (recalage, lissage spatial). Tel que nous le verrons, ces étapes sont nécessaires afin d'éliminer le bruit pouvant s'être mêlé au signal BOLD mesuré, mais qui, en l'occurence, ne reflète pas un phénomène d'intérêt. Finalement, nous aborderons la construction de **cartes d'activation**, qui, en exploitant des concepts statistiques, permet d'émettre des hypothèses scientifiques sur l'organisation fonctionnelle du cerveau. 
 
 #### En IRM fonctionnelle (T2*)
 
