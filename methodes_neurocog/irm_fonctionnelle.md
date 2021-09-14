@@ -206,6 +206,8 @@ La déoxyhémoglobine créer des inhomogénéités du champ magnétique venant r
 
 > L'IRMf constitue par ce fait même, une **mesure indirecte** de l'activité neuronale. En effet, cette modalité ne mesure pas directement l'activité des neurones, mais plutôt la demande métabolique (sang oxygéné vs déoxygéné) associée à celle-ci.
 
+> Le premier modèle quantitatif du couplage neurovasculaire (dit “modèle du ballon”) a été proposé par Buxton et al., MRM 1998. 
+
 ```{code-cell} ipython 3
 :tags: ["hide-input"]
 
@@ -216,19 +218,7 @@ warnings.filterwarnings("ignore")
 # Youtube
 HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/SWOww_Ensqg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
 ```
-L'IRM fonctionnelle et les inférences faites sur l'organisation fonctionnelle du cerveau reposent sur une série d'hypothèses ou présuppositions théoriques. L'une de ces hypothèse importante est le phénomène du **couplage neurovasculaire**. 
 
-```{figure} ./irm_fonctionnelle/Hypothèses_github.png
----
-width: 800px
-name: hypothèses-fig
----
-Sur cette figure, nous pouvons voir la série d'hypothèses sur laquelle repose la modalité d'IRM fonctionnelle et la génération de cartes d'activation. Le couplage neurovasculaire concerne la partie représentant les neurones et la réponde hémodynamique. Ceux-ci seront abordés plus en détails dans la section qui suit.  
-```
-
-####  `Qu'est-ce que le couplage neurovasculaire?` 
-
-Il s'agit d'un **mécanisme** par lequel l'**activité neuronale** du cerveau est suivie une réponse vasculaire, puis d'une **augmentation de la concentration en oxygène** dans le sang à proximité des neurones actifs. Ces changements en oxygénation s'opèrent finement dans le cerveau (**~ 10 microns**), et ils concernent l'échelle des ramifications les plus fines de l'arbre vasculaire, le réseau des capillaires, qui constitue sommairement la microvascularisation. 
 
 ```{figure} ./irm_fonctionnelle/brain_capillaries.jpg
 ---
@@ -238,60 +228,53 @@ name: capillaires-fig
 Sur cette figure, nous pouvons voir le réseau des capillaires irrigant les neurones du cerveau. Copyright © 2010 by Morgan & Claypool Life Sciences.
 NCBI Bookshelf. A service of the National Library of Medicine, National Institutes of Health.
 ```
-```{Un peu d'histoire sur le phénomène du couplage neuro-vasculaire}
-Le phénomène du couplage neurovasculaire a été postulé pour la première fois vers la fin du 19e sièce dans les travaux Roy C.S. Sherrington C.S. On the regulation of the blood supply of the brain.J. Physiol. 1890; 11: 85-108.
-```
-
-#### `Quel est le lien entre activité neuronale et vascularisation?` 
-
-Les mécanismes sous-jacents au phénomène du couplage neurovasculaire sont complexes. Le neurone peut être comparé à une petite usine chimique. L'activité du neurone est assurée par divers composés, impliqués des réactions chimiques, notamment celles menant à la production de neurotransmetteurs dans la fente synaptique. Cette activité n'est pas sans coût : elle accroît la **demande métabolique** (nutriments et oxygène) à proximité des neurones actifs. Ceci produit une réponse vasculaire se caractérisant par **l'augmentation du volume des capillaires** et **l'augmentation du flux sanguin**, qui permet d'accroître l'acheminement en **oxygène** vers les neurones. Éventuellement, un surplus d'oxygène s'accumule localement, puisque l'acheminement en oxygène surpasse sa consommation.
-
-```{À retenir}
-L'IRMf constitue par ce fait même, une **mesure indirecte** de l'activité neuronale. En effet, cette modalité ne mesure pas directement l'activité des neurones, mais plutôt la demande métabolique associée à celle-ci.*
-```
-
-#### `En quoi le couplage neurovasculaire importe-t-il?` 
-
-L'imagerie par résonnance magnétique fonctionnelle (IRMf) est une modalité d'imagerie cérébrale qui exploite le phénomène du couplage neurovasculaire pour mesurer l'activité neuronale, plus précisément l'activité post-synaptique. Les changements en oxygène dans le sang sont mesurés à l'aide du **signal BOLD** (*Blood Oxygenation Level Dependent*) qui reflète la concentration relative en déoxyhémoglobine et oxyhémoglobine localement dans le sang. 
-
-#### `Quel est le lien entre le signal BOLD, l'oxyhémoglobine et la déoxyhémoglobine?`
-
-L'hémoglobine existe sous deux états, qui détiennent des propriétés éléctromagnétiques/stabilité moléculaire distincte. L'**oxyhémoglobine** est **diamagnétique**, tandis que la **dé-oxyhémglobine** est **paramagnétique**. 
-
-Ceci implique que, lorsque soumise à un champ magnétique, ces molécules se comportent différemment. D'une part, la dé-oxyhémoglobine qui est paramagnétique créer des inhomogénéités du champ magnétique. D'autre part, l'oxyhémoglobine ne créer pas de telles inhomogénéités.
-
-Lorsque les neurones s'**activent**, la réponse vasculaire qui achemine l'oxygène vers les neurones, entraîne l'augmentation de la concentration relative de l'oxyhémoglobine par rapport à la dé-oxyhémoglobine localement, ce qui est réflété par la **diminution des inhomogénéités** du champ, et conséquemment, l'**augmentation du signal BOLD**.
 
 ```{Note}
-Les séquences T2* sont sensibles aux inhomogénéités du champ. Cette information est utilisée pour reconstruire l'activité neuronale.
 ```
 
-```{En bref}
------------------------------------------------------------------
 
-|               |   `Déoxyhémoglobine`     | `Oxyhémoglobine`  |
-| ------------- |:-------------:| -----:|
-| `Impact sur le signal BOLD`      | **Réduit** le signal BOLD  | **Augmente** le signal BOLD|
-| `T2*`     | Décroît plus rapidement   |   Décroît plus lentement |
-| `Explication` | **Ajout d'inhomogénéités/distorsions du champ** |  **Pas d'inhomogénétités du champ**  |
-
-------------------------------------------------------------------
-```
-
-## Fonction de réponse hémodynamique
-
-Les inférences sur l'organisation fonctionnelle du cerveau reposent également sur d'autres présuppositions importantes. L'une d'entre elles se rapporte à la connaissance des propriétés de la fonction de réponse hémodynamique. 
-
-#### `Qu'est-ce que la fonction de réponse hémodynamique?`
-
-Il s'agit d'une fonction mathématique qui décrit l'évolution du **signal BOLD** en terme mathématiques, suite à une réponse neuronale, et ce, en fonction du temps. Le premier modèle quantitatif du couplage neurovasculaire (dit “modèle du ballon”) a été proposé par Buxton et al., MRM 1998. La fonction de réponse hémodynamique traite l'activité neuronale (*X*) et le signal BOLD (*y*) comme formant un **système**. 
+### La modèle de la réponse hémodynamique
 
 **`Théorie des systèmes`**
 
+Nous avons parlé plus tôt de l'activité neuronale et de la réponse vasculaire comme formant un **système** dans le cadre du couplage neurovasculaire. L'utilisation de ce mot n'était pas arbitraire et est récupérée dans la section qui suit. Rapportons nous dans un premier temps à la définition de ce qu'un système.
+
+> Un système comprend un ensemble d'éléments qui interagissent selon certains principes ou règles. 
+
+Cette définition est importante, puisqu'elle implique que nous pouvons décrire les interactions entre les éléments formant un système au moyen de fonctions ou modèles. Analoguement, la **fonction de réponse hémodynamique** ou le modèle de la réponse hémodynamique formalise la relation entre les éléments de **1) l'activité neuronale (*X*)** et **2) le signal BOLD (*y*)**, en fonction du temps. Autrement dit, elle comprend la description mathématique de ce système. 
+
 \begin{align}
-X(t) &\quad \text{intrant - > activité neuronale}\\
-Y(t) &\quad \text{sortie - > réponse hémodynamique}\\
+X(t) &\quad \text{intrant : activité neuronale}\\
+Y(t) &\quad \text{sortie : réponse hémodynamique}\\
 \end{align}
+
+Plus tôt, nous avons parlé du couplage neurovasculaire comme figurant parmi les hypothèses théoriques (physiologiques) centrales à la modalité de l'IRM fonctionnelle. La fonction de réponse hémodynamique, et ses propriétés mathématiques, constitue une autre hypothèses importante pour les aspects de modélisation de l'IRM fonctionnelle. Essentiellement, la fonction de réponse hémodynamique sous-tend les inférences que l'on fait sur l'organisation fonctionnelle du cerveau: nous l'employons pour estimer la réponse à une tâche ou condition donnée. 
+
+Dans la figure ci-haut, l'axe des *X* représente le temps, et l'axe de *Y*, le % du changement du signal BOLD. La ligne verticale rouge indique le début de la stimulation. La courbe bleue, pour sa part, illustre le % du changement du signal BOLD attendu suivant la stimulation. Ci-dessous sont décrit quelques caractéristiques de la fonction de réponse hémodynamique. 
+
+```{code-cell} ipython 3
+# emacs: -*- mode: python; py-indent-offset: 4; indent-tabs-mode: nil -*-
+# vi: set ft=python sts=4 ts=4 sw=4 et:
+"""
+Plot of the canonical Glover HRF
+"""
+
+import numpy as np
+from nipy.modalities.fmri import hrf, utils
+import matplotlib.pyplot as plt
+
+# hrf.glover is a symbolic function; get a function of time to work on arrays
+
+fig_BOLD = plt.plot
+hrf_func = utils.lambdify_t(hrf.glover(utils.T))
+t = np.linspace(0,25,200)
+plt.plot(t, hrf_func(t))
+a=plt.gca()
+a.set_xlabel('t(s)')
+a.set_ylabel('% Signal BOLD')
+plt.axvline(x=0, marker = "o", color = "r")
+plt.title("La fonction de réponse hémodynamique")
+```
 
 ```{code-cell} ipython 3
 :tags: ["hide-input"]
