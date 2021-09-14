@@ -237,7 +237,7 @@ NCBI Bookshelf. A service of the National Library of Medicine, National Institut
 
 **`Théorie des systèmes`**
 
-Nous avons parlé plus tôt de l'activité neuronale et de la réponse vasculaire comme formant un **système** dans le cadre du couplage neurovasculaire. L'utilisation de ce mot n'était pas arbitraire et est récupérée dans la section qui suit. Rapportons nous dans un premier temps à la définition de ce qu'un système.
+Nous avons parlé plus tôt de l'activité neuronale et de la réponse vasculaire comme formant un **système** dans le cadre du couplage neurovasculaire. L'utilisation de ce mot n'était pas arbitraire et nous insisterons sur celui-ci dans la section qui suit. Rapportons nous dans un premier temps à la définition de ce qu'un système.
 
 > Un système comprend un ensemble d'éléments qui interagissent selon certains principes ou règles. 
 
